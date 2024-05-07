@@ -63,3 +63,6 @@ https://developer.apple.com/documentation/swiftui/binding
             }
         }
 
+<img width="348" alt="image" src="https://github.com/jasonfangmagic/Hike-SwiftUI/assets/87825019/e5d8b15c-6997-427c-8b9b-2b71f3920ad7">
+
+
