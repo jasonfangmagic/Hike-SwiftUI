@@ -65,4 +65,9 @@ https://developer.apple.com/documentation/swiftui/binding
 
 <img width="348" alt="image" src="https://github.com/jasonfangmagic/Hike-SwiftUI/assets/87825019/e5d8b15c-6997-427c-8b9b-2b71f3920ad7">
 
+# 4. Not only need to add the NavigationStack in the preview, also need to add it in the App file
+<img width="273" alt="image" src="https://github.com/jasonfangmagic/Hike-SwiftUI/assets/87825019/972fc07e-dd36-4afd-9328-58f75b355074">
+<img width="698" alt="image" src="https://github.com/jasonfangmagic/Hike-SwiftUI/assets/87825019/0ddc1bf8-1483-4ffd-8d0b-4b819a70fe62">
+
+
 
