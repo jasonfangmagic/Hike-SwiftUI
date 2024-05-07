@@ -1,5 +1,8 @@
 # 1. @State You can make the struct mutable 
 
+A property wrapper type that can read and write a value managed by SwiftUI.
+https://developer.apple.com/documentation/swiftui/state
+
     struct ContentView: View {
         
        @State private var count: Int = 0
