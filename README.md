@@ -69,5 +69,42 @@ https://developer.apple.com/documentation/swiftui/binding
 <img width="273" alt="image" src="https://github.com/jasonfangmagic/Hike-SwiftUI/assets/87825019/972fc07e-dd36-4afd-9328-58f75b355074">
 <img width="698" alt="image" src="https://github.com/jasonfangmagic/Hike-SwiftUI/assets/87825019/0ddc1bf8-1483-4ffd-8d0b-4b819a70fe62">
 
+# 5. To add a search bar, you must add a navigation bar
 
-
+        struct ContentView: View {
+            
+            
+            @State var search: String = ""
+            @State private var friends: [String] = ["John", "Mary", "Steven", "Steve", "Jerry"]
+            @State var filteredFriends: [String] = []
+            var body: some View {
+                VStack {
+                    
+                    List(filteredFriends, id: \.self) {
+                        friend in
+                        Text(friend)
+                    }
+                    .listStyle(.plain)
+                    .searchable(text: $search)
+                    .onChange(of: search) {
+                        if search.isEmpty {
+                            filteredFriends = friends
+                        } else {
+                            filteredFriends = friends.filter { $0.contains(search) }
+                        }
+                        
+                        
+                    }
+                    
+                    Spacer()
+                }.padding()
+                    .onAppear(perform: {
+                        filteredFriends = friends
+                    })
+                    .navigationTitle("Friends")
+            }
+        }
+        
+        
+        
+        
