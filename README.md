@@ -18,7 +18,7 @@ https://developer.apple.com/documentation/swiftui/state
         }
     }
 
-# 2. Use $ to bind the var with toggle
+# 2. Use $ to bind the var with toggle. Use toggle to change the state of the var, change from false to true
 
 A property wrapper type that can read and write a value owned by a source of truth. <br>
 https://developer.apple.com/documentation/swiftui/binding
