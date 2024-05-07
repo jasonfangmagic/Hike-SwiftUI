@@ -30,7 +30,7 @@ https://developer.apple.com/documentation/swiftui/binding
             var body: some View {
                 VStack {
                     Toggle(isOn: $isOn, label: {
-                        Text("OFF")
+                        Text(isOn ? "ON": "OFF")
                     }).fixedSize()
                 }
             }
