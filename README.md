@@ -31,8 +31,10 @@ https://developer.apple.com/documentation/swiftui/binding
                 VStack {
                     Toggle(isOn: $isOn, label: {
                         Text(isOn ? "ON": "OFF")
+                            .foregroundColor(.white)
                     }).fixedSize()
-                }
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(isOn ? .black: .yellow)
             }
         }
 
