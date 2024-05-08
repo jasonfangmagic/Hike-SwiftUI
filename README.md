@@ -104,7 +104,39 @@ https://developer.apple.com/documentation/swiftui/binding
                     .navigationTitle("Friends")
             }
         }
+
+# 5 Use @Binding to change the value of another struct 
+
+        struct LightBulbView: View {
+            
+            @Binding var isOn: Bool
+            
+            var body: some View {
+                
+                VStack {
+                    Image(systemName: isOn ? "lightbulb.fill" : "lightbulb")
+                        .font(.largeTitle)
+                        .foregroundStyle(isOn ? .yellow : .black)
+                    Button("Toggle"){
+                        isOn.toggle()
+                        
+                    }
+                }
+            }
+        }
         
-        
+        struct ContentView: View {
+            
+            @State private var isLightOn: Bool = false
+            
+            var body: some View {
+                VStack {
+                    LightBulbView(isOn: $isLightOn)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(isLightOn ? .red : .white)
+            }
+        }
         
         
