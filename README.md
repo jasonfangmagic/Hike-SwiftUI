@@ -139,7 +139,7 @@ https://developer.apple.com/documentation/swiftui/binding
             }
         }
 
-# 6. @EnvironmentObject. Only use one environmentObject var to replace @binding. No need to use @binding in every struct
+# 6. Pre IOS17: @EnvironmentObject. Only use one environmentObject var to replace @binding. No need to use @binding in every struct
 
 
         class AppState: ObservableObject {
@@ -190,6 +190,63 @@ https://developer.apple.com/documentation/swiftui/binding
             ContentView()
                 .environmentObject(AppState())
         }
+
+# 7. After IOS17  @EnvironmentObject
+        @Observable
+        class AppState: ObservableObject {
+            var isOn: Bool = false
+        }
+        
+        struct LightBulbView: View {
+            
+            @Environment(AppState.self) private var appState: AppState
+            
+            var body: some View {
+                
+                @Bindable var appState = appState
+                
+                VStack {
+                    Image(systemName: appState.isOn ? "lightbulb.fill" : "lightbulb")
+                        .font(.largeTitle)
+                        .foregroundStyle(appState.isOn ? .yellow : .black)
+                    
+                    Toggle("IsOn", isOn: $appState.isOn)
+        //            Button("Toggle"){
+        //                appState.isOn.toggle()
+        //                
+        //            }
+                }
+            }
+        }
+        
+        struct LightRoomView: View {
+            
+            
+            var body: some View {
+                LightBulbView()
+            }
+        }
+        
+        struct ContentView: View {
+            
+            @Environment(AppState.self) private var appState: AppState
+            
+            var body: some View {
+                VStack {
+                    LightRoomView()
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(appState.isOn ? .red : .white)
+            }
+        }
+        
+        #Preview {
+            ContentView()
+                .environment(AppState())
+        }
+
+
 
         
         
