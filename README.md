@@ -247,6 +247,5 @@ https://developer.apple.com/documentation/swiftui/binding
         }
 
 
-
         
         
